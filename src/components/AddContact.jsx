@@ -18,6 +18,14 @@ class AddContact extends React.Component {
     this.setState({ name: "", email: "" });
   }
 
+  handleNameChange = (e) => {
+    this.setState({name: e.target.value})
+  }
+
+  handleEmailChange = (e) => {
+    this.setState({email: e.target.value})
+  }
+
   render() {
     return (
       <div className="ui main">
@@ -30,7 +38,7 @@ class AddContact extends React.Component {
               name="name"
               placeholder="Name"
               value={this.state.name}
-              onChange={(e) => this.setState({name: e.target.value})}
+              onChange={this.handleNameChange}
             />
           </div>
           <div className="field">
@@ -40,11 +48,13 @@ class AddContact extends React.Component {
               name="email"
               placeholder="Email"
               value={this.state.email}
-              onChange={(e) => this.setState({email: e.target.value})}
+              onChange={this.handleEmailChange}
             />
           </div>
           <button className="ui button blue">Add</button>
         </form>
+        <strong>The typed name is: </strong><span>{this.state.name}</span><br />
+        <strong>The typed email is: </strong><span>{this.state.email}</span>
       </div>
     )
   }
