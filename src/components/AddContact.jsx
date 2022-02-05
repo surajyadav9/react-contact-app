@@ -14,8 +14,14 @@ class AddContact extends React.Component {
       return;
     }
 
+    // App.js
     this.props.addContactHandler(this.state)
+
+    // make both fileds empty after successfully adding a contact
     this.setState({ name: "", email: "" });
+
+    // redirect to homepage(contact List) when a contact added
+    this.props.history.push("/")
   }
 
   handleNameChange = (e) => {
